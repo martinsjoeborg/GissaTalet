@@ -9,3 +9,5 @@
 // Skicka försöken till txt-fil
 
 // Resultat/Visa rätt nummer
+
+// Fråga om att spela igen
