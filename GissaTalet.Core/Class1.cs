@@ -11,7 +11,7 @@ public class GissaTalet
 
         using (StreamWriter writer = new StreamWriter(filePath, true))
         {
-            writer.WriteLine($"{number}\n");
+            writer.WriteLine(number);
         }
     }
 }
