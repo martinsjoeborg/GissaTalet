@@ -14,7 +14,7 @@ public class GissaTalet
             writer.WriteLine(number);
         }
     }
-}
+    }
 
 public class Writer
 {

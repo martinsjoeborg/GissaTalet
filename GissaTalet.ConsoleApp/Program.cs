@@ -7,7 +7,6 @@
 
 // Kolla om det redan har gissats
 
-
 // Skriv ut liv/försök/hints
 
 // Skicka försöken till txt-fil
@@ -32,9 +31,6 @@ class Program
 
         System.Console.Write("Enter a number: ");
         int input = int.Parse(Console.ReadLine()!);
-
-        
         game.SaveGuesses(input);
     }
 }
-
