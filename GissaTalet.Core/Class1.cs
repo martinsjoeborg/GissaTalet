@@ -1,8 +1,9 @@
 ﻿namespace GissaTalet.Core;
 
-public class Class1
+public class GissaTalet
 {
     public int Attempts {get; set;} = 10;
+    public List<int> numbers { get; set; } = Enumerable.Range(1, 100).ToList();
 }
 
 public class Writer
@@ -28,3 +29,4 @@ public class Writer
         Console.ResetColor();
     }
 }
+
