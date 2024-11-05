@@ -24,13 +24,12 @@ class Program
     static void Main(string[] args)
     {
         var game = new Core.GissaTalet();
-
         var list = game.Numbers;
 
-        Writer.SuccessLine("Yippi!");
-
-        System.Console.Write("Enter a number: ");
-        int input = int.Parse(Console.ReadLine()!);
-        game.SaveGuesses(input);
+        while (true)
+        {
+        Console.Write("Enter a number: ");
+        game.CheckNumber();
+        }
     }
 }

@@ -14,6 +14,23 @@ public class GissaTalet
             writer.WriteLine(number);
         }
     }
+
+    public void CheckNumber()
+    {
+        string answer = Console.ReadLine()!.Trim();
+
+        if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
+        {
+            SaveGuesses(input);
+        }
+
+        if (input < 1 || input > 100)
+        {
+            Writer.ErrorLine("\nPlease enter a number from 1 to 100.");
+            Attempts--;
+            Writer.InfoLine($"You have {Attempts} attempts left.");
+        }
+    }
     }
 
 public class Writer
