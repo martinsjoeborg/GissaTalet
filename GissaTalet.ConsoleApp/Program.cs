@@ -13,6 +13,8 @@
 
 // Fråga om att spela igen
 
+using GissaTalet.Core;
+
 namespace GissaTalet.ConsoleApp;
 
 class Program
@@ -21,12 +23,14 @@ class Program
     {
         var game = new Core.GissaTalet();
 
-        var list = game.numbers;
+        var list = game.Numbers;
 
         foreach (var number in list)
         {
             Console.WriteLine(number);
         }
+
+        Writer.SuccessLine("Yippi!");
     }
 }
 
