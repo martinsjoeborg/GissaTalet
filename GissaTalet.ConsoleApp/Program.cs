@@ -3,7 +3,10 @@
 
 // Regler?
 
-// Gissa nummer
+// Gissa nummer (gissa ett nummer från 1-100... X för att avsluta..)
+
+// Kolla om det redan har gissats
+
 
 // Skriv ut liv/försök/hints
 
