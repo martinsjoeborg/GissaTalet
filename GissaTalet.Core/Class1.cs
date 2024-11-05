@@ -2,7 +2,7 @@
 
 public class Class1
 {
-
+    public int Attempts {get; set;} = 10;
 }
 
 public class Writer
