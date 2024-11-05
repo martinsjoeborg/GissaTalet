@@ -24,7 +24,7 @@ public class GissaTalet
             SaveGuesses(input);
         }
 
-        if (input < 1 || input > 100)
+        else
         {
             Writer.ErrorLine("\nPlease enter a number from 1 to 100.");
             Attempts--;
