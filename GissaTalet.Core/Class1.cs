@@ -15,11 +15,9 @@ public class GissaTalet
         }
     }
 
-
     public void CheckNumber()
     {
         string answer = Console.ReadLine()!.Trim();
-
 
         if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
         {
@@ -68,7 +66,14 @@ public class Writer
     public static void WelcomeMessage()
     {
         Console.ForegroundColor = ConsoleColor.DarkCyan;
-        Console.WriteLine("Welcome to Guess The Number 🥳");
+        Console.WriteLine("--- WELCOME TO GUESS THE NUMBER 🥳 ---");
         Console.ResetColor();
+    }
+
+    public static void RulesInfo()
+    {
+        Console.WriteLine($"* You start off with 10 attempts");
+        Console.WriteLine("* Invalid guesses decreases your attempts by 1");
+        Console.WriteLine("* något något...*");
     }
 }
