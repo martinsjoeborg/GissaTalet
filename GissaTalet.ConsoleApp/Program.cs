@@ -1,2 +1,2 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, Testing testing!");
+Console.WriteLine("Hello, testar igen");
