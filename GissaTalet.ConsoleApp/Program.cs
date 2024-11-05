@@ -28,12 +28,13 @@ class Program
 
         var list = game.Numbers;
 
-        foreach (var number in list)
-        {
-            Console.WriteLine(number);
-        }
-
         Writer.SuccessLine("Yippi!");
+
+        System.Console.Write("Enter a number: ");
+        int input = int.Parse(Console.ReadLine()!);
+
+        
+        game.SaveGuesses(input);
     }
 }
 

@@ -4,6 +4,16 @@ public class GissaTalet
 {
     public int Attempts {get; set;} = 10;
     public List<int> Numbers { get; set; } = Enumerable.Range(1, 100).ToList();
+
+    public void SaveGuesses(int number)
+    {
+        string filePath = "../GissaTalet.Core/Logger.txt";
+
+        using (StreamWriter writer = new StreamWriter(filePath, true))
+        {
+            writer.WriteLine($"{number}\n");
+        }
+    }
 }
 
 public class Writer
