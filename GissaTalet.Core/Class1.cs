@@ -1,43 +1,52 @@
-﻿namespace GissaTalet.Core;
+﻿
+namespace GissaTalet.Core;
 
 public class GissaTalet
 {
-    public int Attempts {get; set;} = 10;
+    public int Attempts { get; set; } = 10;
     public List<int> Numbers { get; set; } = Enumerable.Range(1, 100).ToList();
 
     public void SaveGuesses(int number)
     {
         string filePath = "../GissaTalet.Core/Logger.txt";
-
         using (StreamWriter writer = new StreamWriter(filePath, true))
         {
             writer.WriteLine(number);
         }
     }
 
+
     public void CheckNumber()
     {
         string answer = Console.ReadLine()!.Trim();
+
 
         if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
         {
             SaveGuesses(input);
         }
 
-        if (input < 1 || input > 100)
+        else
         {
             Writer.ErrorLine("\nPlease enter a number from 1 to 100.");
             Attempts--;
             Writer.InfoLine($"You have {Attempts} attempts left.");
         }
     }
-    }
+}
 
 public class Writer
 {
     public static void InfoLine(string message)
     {
         Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine(message);
+        Console.ResetColor();
+    }
+
+    public static void Info(string message)
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine(message);
         Console.ResetColor();
     }
@@ -55,5 +64,11 @@ public class Writer
         Console.WriteLine(message);
         Console.ResetColor();
     }
-}
 
+    public static void WelcomeMessage()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.WriteLine("Welcome to Guess The Number 🥳");
+        Console.ResetColor();
+    }
+}
