@@ -15,6 +15,21 @@ public class GissaTalet
         }
     }
 
+    public void ShowGuesses()
+    {
+        string filePath = "../GissaTalet.Core/Logger.txt";
+
+        string[] lines = File.ReadAllLines(filePath);
+
+        foreach (string line in lines)
+        {
+            if (int.TryParse(line, out int number))
+            {
+                Console.Write($"{number} ");
+            }
+        }
+
+    }
     public void CheckNumber(int randomNumber)
     {
         string answer = Console.ReadLine()!.Trim();
