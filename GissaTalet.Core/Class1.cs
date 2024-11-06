@@ -43,34 +43,34 @@ public class GissaTalet
         switch (randomNumber)
         {
             case <= 100 and >= 90:
-                Console.WriteLine("Hint: The number is somewhere between 90 and 100");
+                Writer.SuccessLine("Hint: The number is somewhere between 90 and 100");
                 break;
             case <= 89 and >= 80:
-                Console.WriteLine("Hint: The number is somewhere between 80 and 89");
+                Writer.SuccessLine("Hint: The number is somewhere between 80 and 89");
                 break;
             case <= 79 and >= 70:
-                Console.WriteLine("Hint: The number is somewhere between 70 and 79");
+                Writer.SuccessLine("Hint: The number is somewhere between 70 and 79");
                 break;
             case <= 69 and >= 60:
-                Console.WriteLine("Hint: The number is somewhere between 60 and 69");
+                Writer.SuccessLine("Hint: The number is somewhere between 60 and 69");
                 break;
             case <= 59 and >= 50:
-                Console.WriteLine("Hint: The number is somewhere between 50 and 59");
+                Writer.SuccessLine("Hint: The number is somewhere between 50 and 59");
                 break;
             case <= 49 and >= 40:
-                Console.WriteLine("Hint: The number is somewhere between 40 and 49");
+                Writer.SuccessLine("Hint: The number is somewhere between 40 and 49");
                 break;
             case <= 39 and >= 30:
-                Console.WriteLine("Hint: The number is somewhere between 30 and 39");
+                Writer.SuccessLine("Hint: The number is somewhere between 30 and 39");
                 break;
             case <= 29 and >= 20:
-                Console.WriteLine("Hint: The number is somewhere between 20 and 29");
+                Writer.SuccessLine("Hint: The number is somewhere between 20 and 29");
                 break;
             case <= 19 and >= 10:
-                Console.WriteLine("Hint: The number is somewhere between 10 and 19");
+                Writer.SuccessLine("Hint: The number is somewhere between 10 and 19");
                 break;
             case < 10:
-                Console.WriteLine("Hint: The number is somewhere between 50 and 59");
+                Writer.SuccessLine("Hint: The number is somewhere between 50 and 59");
                 break;
 
         }
