@@ -16,6 +16,12 @@ public class GissaTalet
         }
     }
 
+        public void ClearGuesses()
+    {
+        string filePath = "../GissaTalet.Core/Logger.txt";
+        File.WriteAllText(filePath, string.Empty);
+    }
+
     public void ShowGuesses()
     {
         string filePath = "../GissaTalet.Core/Logger.txt";
@@ -35,6 +41,12 @@ public class GissaTalet
     {
         string answer = Console.ReadLine()!.Trim();
 
+        if (answer.ToLower() == "exit")
+        {
+            isGameOver = true;
+            return;
+        }
+
         if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
         {
             SaveGuesses(input);
@@ -50,6 +62,7 @@ public class GissaTalet
         {
             Writer.SuccessLine("\nYou got it! 🥳");
             Writer.InfoLine($"The number was {randomNumber} and you had {Attempts} attempts left.\n");
+            ClearGuesses();
             isGameOver = true;
         }
 
@@ -103,8 +116,9 @@ public class Writer
 
     public static void RulesInfo()
     {
-        Console.WriteLine($"* You start off with 10 attempts");
-        Console.WriteLine("* Invalid guesses decreases your attempts by 1");
-        Console.WriteLine("* The numbers are between 1 and 100.");
+        Console.WriteLine($"- You start off with 10 attempts");
+        Console.WriteLine("- Invalid guesses decreases your attempts by 1");
+        Console.WriteLine("- The numbers are between 1 and 100");
+        Console.WriteLine("- Write EXIT to exit the game");
     }
 }

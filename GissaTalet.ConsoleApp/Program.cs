@@ -33,7 +33,7 @@ class Program
                     Writer.ErrorLine("\n--- GAME OVER 😢 --- ");
                     Writer.Info($"The random number was {randomNumber}\n");
                 }
-
+                game.ClearGuesses();
                 break;
             }
         }
