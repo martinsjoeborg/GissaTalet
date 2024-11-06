@@ -18,9 +18,6 @@ class Program
 
         while (true)
         {
-            Console.Write("Your have guessed: ");
-            game.ShowGuesses();
-
             Console.Write("\nEnter a number: ");
             game.CheckNumber();
         
