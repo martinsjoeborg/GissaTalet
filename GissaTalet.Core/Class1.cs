@@ -77,7 +77,6 @@ private void HandleGuess(int input, int randomNumber)
     {
         Writer.SuccessLine("\nYou got it! 🥳");
         Writer.InfoLine($"The number was {randomNumber} and you had {Attempts} attempts left.\n");
-        ClearGuesses();
         isGameOver = true;
     }
 }

@@ -7,15 +7,13 @@ class Program
     static void Main(string[] args)
     {
         var game = new Core.GissaTalet();
-        var list = game.Numbers;
-        Random random = new Random();
-        int randomIndex = random.Next(0, game.Numbers.Count);
-        int randomNumber = game.Numbers[randomIndex];
+        var random = new Random();
+        int randomNumber = game.Numbers[random.Next(game.Numbers.Count)];
+
+        game.InitializeGame(); /* Console Clear, Rensar Logger.txt (lagrar gissningar)
+                                Skriver ut välkomst, och skriver ut hur spelet funkar */
         Console.WriteLine(randomNumber);
-
-        game.InitializeGame(); // Console Clear, Rensar Logger.txt (lagrar gissningar)
-                               // Skriver ut välkomst, och skriver ut hur spelet funkar
-
+        
         while (true)
         {
 
