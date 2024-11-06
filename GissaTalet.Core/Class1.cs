@@ -52,7 +52,7 @@ public void CheckNumber(int randomNumber)
     }
 }
 
-private bool HandleExit(string answer)
+public bool HandleExit(string answer)
 {
     if (answer.ToLower() == "exit")
     {
@@ -63,7 +63,7 @@ private bool HandleExit(string answer)
     return false;
 }
 
-private void HandleGuess(int input, int randomNumber)
+public void HandleGuess(int input, int randomNumber)
 {
     SaveGuesses(input);
 
@@ -81,7 +81,7 @@ private void HandleGuess(int input, int randomNumber)
     }
 }
 
-private void InvalidInput()
+public void InvalidInput()
 {
     Writer.ErrorLine("\nPlease enter a number from 1 to 100.");
     Attempts--;

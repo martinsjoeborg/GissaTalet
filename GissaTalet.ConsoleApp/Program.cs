@@ -10,8 +10,7 @@ class Program
         var random = new Random();
         int randomNumber = game.Numbers[random.Next(game.Numbers.Count)];
 
-        game.InitializeGame(); /* Console Clear, Rensar Logger.txt (lagrar gissningar)
-                                  Skriver ut välkomst, och skriver ut hur spelet funkar */
+        game.InitializeGame(); 
         Console.WriteLine(randomNumber);
 
         while (true)
