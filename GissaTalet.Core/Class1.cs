@@ -75,73 +75,73 @@ public class GissaTalet
         }
     }
 
-public void CheckNumber(int randomNumber)
-{
-    string answer = Console.ReadLine()!.Trim();
-
-    if (HandleExit(answer, randomNumber)) return;
-
-    if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
+    public void CheckNumber(int randomNumber)
     {
-        if (!Guesses.Contains(input))
+        string answer = Console.ReadLine()!.Trim();
+
+        if (HandleExit(answer, randomNumber)) return;
+
+        if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
         {
-            Guesses.Add(input);
+            if (!Guesses.Contains(input))
+            {
+                Guesses.Add(input);
+            }
+
+            else
+            {
+                Writer.ErrorLine("\nYou have already guessed that number.");
+                return;
+            }
+
+            HandleGuess(input, randomNumber);
+
         }
-        
         else
         {
-            Writer.ErrorLine("\nYou have already guessed that number.");
-            return;
+            InvalidInput();
         }
-
-        HandleGuess(input, randomNumber);
-        Guesses.Add(input);
     }
-    else
+
+    public bool HandleExit(string answer, int randomNumber)
     {
-        InvalidInput();
+        if (answer.ToLower() == "exit")
+        {
+            Writer.DarkCyan("\nLooks like you're giving up already! Don't worry, there's always next round! 😅");
+            Writer.Info($"The number you were trying to guess was {randomNumber}\n");
+            isGameOver = true;
+            return true;
+        }
+        return false;
     }
-}
 
-public bool HandleExit(string answer, int randomNumber)
-{
-    if (answer.ToLower() == "exit")
+    public void HandleGuess(int input, int randomNumber)
     {
-        Writer.DarkCyan("\nLooks like you're giving up already! Don't worry, there's always next round! 😅");
-        Writer.Info($"The number you were trying to guess was {randomNumber}\n");
-        isGameOver = true;
-        return true;
+        SaveGuesses(input);
+
+        if (input != randomNumber)
+        {
+            Attempts--;
+            Writer.ErrorLine("\nWrong guess. Try again");
+            Writer.Info($"You have {Attempts} attempts left..");
+        }
+        else
+        {
+            Writer.SuccessLine("\nYou got it! 🥳");
+            Writer.InfoLine($"The number was {randomNumber} and you had {Attempts} attempts left.\n");
+            isGameOver = true;
+        }
     }
-    return false;
-}
 
-public void HandleGuess(int input, int randomNumber)
-{
-    SaveGuesses(input);
-
-    if (input != randomNumber)
+    public void InvalidInput()
     {
-        Writer.ErrorLine("\nWrong guess. Try again");
+        Writer.ErrorLine("\nInvalid input, please enter a number from 1 to 100.");
         Attempts--;
-        Writer.Info($"You have {Attempts} attempts left..");
+        Writer.Info($"You have {Attempts} attempts left.");
     }
-    else
+
+    public void InitializeGame()
     {
-        Writer.SuccessLine("\nYou got it! 🥳");
-        Writer.InfoLine($"The number was {randomNumber} and you had {Attempts} attempts left.\n");
-        isGameOver = true;
-    }
-}
-
-public void InvalidInput()
-{
-    Writer.ErrorLine("\nInvalid input, please enter a number from 1 to 100.");
-    Attempts--;
-    Writer.Info($"You have {Attempts} attempts left.");
-}
-
-public void InitializeGame()
-{
         Console.Clear();
         ClearGuesses();
         Writer.DarkCyan("\n--- WELCOME TO GUESS THE NUMBER 🥳 ---");
