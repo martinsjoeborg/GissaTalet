@@ -88,6 +88,14 @@ private void InvalidInput()
     Attempts--;
     Writer.InfoLine($"You have {Attempts} attempts left.");
 }
+
+public void InitializeGame()
+{
+        Console.Clear();
+        ClearGuesses();
+        Writer.DarkCyan("--- WELCOME TO GUESS THE NUMBER 🥳 ---");
+        Writer.RulesInfo();
+}
 }
 
 public class Writer

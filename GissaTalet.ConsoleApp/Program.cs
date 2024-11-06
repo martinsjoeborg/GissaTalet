@@ -8,14 +8,13 @@ class Program
     {
         var game = new Core.GissaTalet();
         var list = game.Numbers;
-
-        Console.Clear();
-        Writer.DarkCyan("--- WELCOME TO GUESS THE NUMBER 🥳 ---");
-        Writer.RulesInfo();
         Random random = new Random();
         int randomIndex = random.Next(0, game.Numbers.Count);
         int randomNumber = game.Numbers[randomIndex];
         Console.WriteLine(randomNumber);
+
+        game.InitializeGame(); // Console Clear, Rensar Logger.txt (lagrar gissningar)
+                               // Skriver ut välkomst, och skriver ut hur spelet funkar
 
         while (true)
         {
@@ -33,7 +32,6 @@ class Program
                     Writer.ErrorLine("\n--- GAME OVER 😢 --- ");
                     Writer.Info($"The random number was {randomNumber}\n");
                 }
-                game.ClearGuesses();
                 break;
             }
         }
