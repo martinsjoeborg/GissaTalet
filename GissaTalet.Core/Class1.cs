@@ -43,38 +43,36 @@ public class GissaTalet
         switch (randomNumber)
         {
             case <= 100 and >= 90:
-                Writer.SuccessLine("Hint: The number is somewhere between 90 and 100");
+                Writer.SuccessLine("\nHint: The number is somewhere between 90 and 100");
                 break;
             case <= 89 and >= 80:
-                Writer.SuccessLine("Hint: The number is somewhere between 80 and 89");
+                Writer.SuccessLine("\nHint: The number is somewhere between 80 and 89");
                 break;
             case <= 79 and >= 70:
-                Writer.SuccessLine("Hint: The number is somewhere between 70 and 79");
+                Writer.SuccessLine("\nHint: The number is somewhere between 70 and 79");
                 break;
             case <= 69 and >= 60:
-                Writer.SuccessLine("Hint: The number is somewhere between 60 and 69");
+                Writer.SuccessLine("\nHint: The number is somewhere between 60 and 69");
                 break;
             case <= 59 and >= 50:
-                Writer.SuccessLine("Hint: The number is somewhere between 50 and 59");
+                Writer.SuccessLine("\nHint: The number is somewhere between 50 and 59");
                 break;
             case <= 49 and >= 40:
-                Writer.SuccessLine("Hint: The number is somewhere between 40 and 49");
+                Writer.SuccessLine("\nHint: The number is somewhere between 40 and 49");
                 break;
             case <= 39 and >= 30:
-                Writer.SuccessLine("Hint: The number is somewhere between 30 and 39");
+                Writer.SuccessLine("\nHint: The number is somewhere between 30 and 39");
                 break;
             case <= 29 and >= 20:
-                Writer.SuccessLine("Hint: The number is somewhere between 20 and 29");
+                Writer.SuccessLine("\nHint: The number is somewhere between 20 and 29");
                 break;
             case <= 19 and >= 10:
-                Writer.SuccessLine("Hint: The number is somewhere between 10 and 19");
+                Writer.SuccessLine("\nHint: The number is somewhere between 10 and 19");
                 break;
             case < 10:
-                Writer.SuccessLine("Hint: The number is somewhere between 50 and 59");
+                Writer.SuccessLine("\nHint: The number is somewhere between 50 and 59");
                 break;
-
         }
-
     }
 
 public void CheckNumber(int randomNumber)
@@ -125,7 +123,7 @@ public void HandleGuess(int input, int randomNumber)
     {
         Writer.ErrorLine("\nWrong guess. Try again");
         Attempts--;
-        Writer.InfoLine($"You have {Attempts} attempts left..");
+        Writer.Info($"You have {Attempts} attempts left..");
     }
     else
     {
@@ -137,18 +135,21 @@ public void HandleGuess(int input, int randomNumber)
 
 public void InvalidInput()
 {
-    Writer.ErrorLine("\nPlease enter a number from 1 to 100.");
+    Writer.ErrorLine("\nInvalid input, please enter a number from 1 to 100.");
     Attempts--;
-    Writer.InfoLine($"You have {Attempts} attempts left.");
+    Writer.Info($"You have {Attempts} attempts left.");
 }
 
 public void InitializeGame()
 {
         Console.Clear();
         ClearGuesses();
-        Writer.DarkCyan("--- WELCOME TO GUESS THE NUMBER 🥳 ---");
-        Writer.RulesInfo();
-}
+        Writer.DarkCyan("\n--- WELCOME TO GUESS THE NUMBER 🥳 ---");
+        Console.WriteLine("🚀 You start off with 10 attempts");
+        Console.WriteLine("🚀 Non-numeric guesses decreases your attempts");
+        Console.WriteLine("🚀 The numbers are between 1 and 100");
+        Console.WriteLine("🚀 Write 'exit' if you're a quitter");
+    }
 }
 
 public class Writer
@@ -186,13 +187,5 @@ public class Writer
         Console.ForegroundColor = ConsoleColor.DarkCyan;
         Console.WriteLine(message);
         Console.ResetColor();
-    }
-
-    public static void RulesInfo()
-    {
-        Console.WriteLine($"- You start off with 10 attempts");
-        Console.WriteLine("- Invalid guesses decreases your attempts by 1");
-        Console.WriteLine("- The numbers are between 1 and 100");
-        Console.WriteLine("- Write EXIT to exit the game");
     }
 }

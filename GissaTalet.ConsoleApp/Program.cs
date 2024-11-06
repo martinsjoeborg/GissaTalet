@@ -22,11 +22,14 @@ class Program
                 showHint = false;
             }
 
-            Console.Write("\nYour previous guesses: ");
-            game.ShowGuesses();
-
             Console.Write("\nEnter a number: ");
             game.CheckNumber(randomNumber);
+
+            if (!game.isGameOver && game.Guesses.Count > 0)
+            {
+                Console.Write("\nYour previous guesses: ");
+                game.ShowGuesses();
+            }
 
             if (game.isGameOver || game.Attempts == 0)
             {
