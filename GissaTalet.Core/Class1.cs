@@ -87,8 +87,8 @@ public void CheckNumber(int randomNumber)
         {
             Guesses.Add(input);
         }
-
-            else
+        
+        else
         {
             Writer.ErrorLine("\nYou have already guessed that number.");
             return;
