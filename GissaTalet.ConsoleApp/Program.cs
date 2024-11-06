@@ -9,12 +9,18 @@ class Program
         var game = new Core.GissaTalet();
         var random = new Random();
         int randomNumber = game.Numbers[random.Next(game.Numbers.Count)];
+        bool showHint = true;
 
         game.InitializeGame(); 
         Console.WriteLine(randomNumber);
 
         while (true)
         {
+            if(game.Attempts <= 5 && showHint)
+            {
+                game.ShowHint(randomNumber);
+                showHint = false;
+            }
 
             Console.Write("\nYour previous guesses: ");
             game.ShowGuesses();
