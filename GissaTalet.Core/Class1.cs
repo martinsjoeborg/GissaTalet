@@ -18,7 +18,7 @@ public class GissaTalet
     public void CheckNumber()
     {
         string answer = Console.ReadLine()!.Trim();
-
+        
         if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
         {
             SaveGuesses(input);
