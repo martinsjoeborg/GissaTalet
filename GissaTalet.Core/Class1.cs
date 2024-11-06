@@ -15,13 +15,27 @@ public class GissaTalet
         }
     }
 
-    public void CheckNumber()
+    public void CheckNumber(int randomNumber)
     {
         string answer = Console.ReadLine()!.Trim();
-        
+
         if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
         {
             SaveGuesses(input);
+
+            if (input != randomNumber)
+        {
+            Writer.ErrorLine("\nWrong guess. Try again");
+            Attempts--;
+            Writer.InfoLine($"You have {Attempts} attempts left..");
+        }
+
+        else 
+        {
+            Writer.SuccessLine("\nYou got it! 🥳");
+            Writer.InfoLine($"The number was {randomNumber} and you had {Attempts} attempts left.");
+        }
+
         }
 
         else

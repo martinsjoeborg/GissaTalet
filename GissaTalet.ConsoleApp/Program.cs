@@ -9,6 +9,7 @@ class Program
         var game = new Core.GissaTalet();
         var list = game.Numbers;
 
+        Console.Clear();
         Writer.WelcomeMessage();
         Writer.RulesInfo();
         Random random = new Random();
@@ -19,7 +20,7 @@ class Program
         while (true)
         {
             Console.Write("\nEnter a number: ");
-            game.CheckNumber();
+            game.CheckNumber(randomNumber);
         }
     }
 }
