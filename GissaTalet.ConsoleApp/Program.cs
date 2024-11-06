@@ -11,10 +11,12 @@ class Program
 
         Writer.WelcomeMessage();
         Writer.RulesInfo();
+
         while (true)
         {
-        Console.Write("Enter a number: ");
+        Console.Write("\nEnter a number: ");
         game.CheckNumber();
+        
         }
     }
 }
