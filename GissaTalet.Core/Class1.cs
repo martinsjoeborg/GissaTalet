@@ -74,6 +74,6 @@ public class Writer
     {
         Console.WriteLine($"* You start off with 10 attempts");
         Console.WriteLine("* Invalid guesses decreases your attempts by 1");
-        Console.WriteLine("* något något...*");
+        Console.WriteLine("* The numbers are between 1 and 100.");
     }
 }
