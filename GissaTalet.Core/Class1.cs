@@ -1,14 +1,14 @@
-﻿namespace GissaTalet.Core;
+﻿
+namespace GissaTalet.Core;
 
 public class GissaTalet
 {
-    public int Attempts {get; set;} = 10;
+    public int Attempts { get; set; } = 10;
     public List<int> Numbers { get; set; } = Enumerable.Range(1, 100).ToList();
 
     public void SaveGuesses(int number)
     {
         string filePath = "../GissaTalet.Core/Logger.txt";
-
         using (StreamWriter writer = new StreamWriter(filePath, true))
         {
             writer.WriteLine(number);
@@ -31,13 +31,20 @@ public class GissaTalet
             Writer.InfoLine($"You have {Attempts} attempts left.");
         }
     }
-    }
+}
 
 public class Writer
 {
     public static void InfoLine(string message)
     {
         Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine(message);
+        Console.ResetColor();
+    }
+
+    public static void Info(string message)
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine(message);
         Console.ResetColor();
     }
@@ -55,5 +62,18 @@ public class Writer
         Console.WriteLine(message);
         Console.ResetColor();
     }
-}
 
+    public static void WelcomeMessage()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.WriteLine("--- WELCOME TO GUESS THE NUMBER 🥳 ---");
+        Console.ResetColor();
+    }
+
+    public static void RulesInfo()
+    {
+        Console.WriteLine($"* You start off with 10 attempts");
+        Console.WriteLine("* Invalid guesses decreases your attempts by 1");
+        Console.WriteLine("* något något...*");
+    }
+}
