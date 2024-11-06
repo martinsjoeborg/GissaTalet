@@ -11,6 +11,10 @@ class Program
 
         Writer.WelcomeMessage();
         Writer.RulesInfo();
+        Random random = new Random();
+        int randomIndex = random.Next(0, game.Numbers.Count);
+        int randomNumber = game.Numbers[randomIndex];
+        Console.WriteLine(randomNumber);
 
         while (true)
         {
