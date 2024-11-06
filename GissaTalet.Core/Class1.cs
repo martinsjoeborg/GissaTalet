@@ -5,6 +5,7 @@ public class GissaTalet
 {
     public int Attempts { get; set; } = 10;
     public List<int> Numbers { get; set; } = Enumerable.Range(1, 100).ToList();
+    public List<int> Guesses { get; set; } = [];
     public bool isGameOver { get; set; } = false;
 
     public void SaveGuesses(int number)
@@ -36,15 +37,33 @@ public class GissaTalet
         }
     }
 
+    public void ShowHint()
+    {
+            // SKRIV SHOWHINT FUNKTION
+
+    }
+
 public void CheckNumber(int randomNumber)
 {
     string answer = Console.ReadLine()!.Trim();
 
-    if (HandleExit(answer)) return;
+    if (HandleExit(answer, randomNumber)) return;
 
     if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
     {
+        if (!Guesses.Contains(input))
+        {
+            Guesses.Add(input);
+        }
+
+            else
+        {
+            Writer.ErrorLine("\nYou have already guessed that number.");
+            return;
+        }
+
         HandleGuess(input, randomNumber);
+        Guesses.Add(input);
     }
     else
     {
@@ -52,11 +71,12 @@ public void CheckNumber(int randomNumber)
     }
 }
 
-public bool HandleExit(string answer)
+public bool HandleExit(string answer, int randomNumber)
 {
     if (answer.ToLower() == "exit")
     {
-        Writer.DarkCyan("\nLooks like you're giving up already! Don't worry — there's always next round! 😅\n");
+        Writer.DarkCyan("\nLooks like you're giving up already! Don't worry, there's always next round! 😅");
+        Writer.Info($"The number you were trying to guess was {randomNumber}\n");
         isGameOver = true;
         return true;
     }

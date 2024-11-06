@@ -1,7 +1,5 @@
 using Shouldly;
 
-using GissaTalet.Core;
-
 namespace GissaTalet.Tests;
 
 public class UnitTest1
@@ -11,7 +9,7 @@ public class UnitTest1
     {
         // Arrange  
         var game = new Core.GissaTalet();
-
+        
         int secretnumber = 50;
 
         //Act
