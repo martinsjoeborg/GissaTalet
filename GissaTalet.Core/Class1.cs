@@ -5,6 +5,7 @@ public class GissaTalet
 {
     public int Attempts { get; set; } = 10;
     public List<int> Numbers { get; set; } = Enumerable.Range(1, 100).ToList();
+    public bool isGameOver {get; set;} = false;
 
     public void SaveGuesses(int number)
     {
@@ -49,6 +50,7 @@ public class GissaTalet
         {
             Writer.SuccessLine("\nYou got it! 🥳");
             Writer.InfoLine($"The number was {randomNumber} and you had {Attempts} attempts left.");
+            isGameOver = true;
         }
 
         }

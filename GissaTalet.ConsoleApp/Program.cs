@@ -24,7 +24,13 @@ class Program
             game.ShowGuesses();
 
             Console.Write("\nEnter a number: ");
-            game.CheckNumber(randomNumber);
+
+            if (game.Attempts == 0)
+            {
+                Writer.ErrorLine("\n--- GAME OVER 😢 --- ");
+                Writer.Info($"The random number was {randomNumber}\n");
+                break;
+            }
         }
     }
 }
