@@ -49,7 +49,7 @@ public class GissaTalet
         else 
         {
             Writer.SuccessLine("\nYou got it! 🥳");
-            Writer.InfoLine($"The number was {randomNumber} and you had {Attempts} attempts left.");
+            Writer.InfoLine($"The number was {randomNumber} and you had {Attempts} attempts left.\n");
             isGameOver = true;
         }
 
