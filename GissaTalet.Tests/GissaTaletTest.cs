@@ -1,3 +1,5 @@
+using Shouldly;
+
 using GissaTalet.Core;
 
 namespace GissaTalet.Tests;
@@ -7,15 +9,17 @@ public class UnitTest1
     [Fact]
     public void TestWordSelection()
     {
-        // Arrange
-        
+        // Arrange  
+        var game = new Core.GissaTalet();
 
+        int secretnumber = 50;
 
-        // Act
-        
+        //Act
 
+        //Assert
+        game.HandleGuess(50, secretnumber);
 
-        // Assert
+        game.isGameOver.ShouldBeTrue();
         
     }
 
