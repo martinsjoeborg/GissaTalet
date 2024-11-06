@@ -19,6 +19,10 @@ class Program
 
         while (true)
         {
+            
+            Console.Write("\nYour previous guesses: ");
+            game.ShowGuesses();
+
             Console.Write("\nEnter a number: ");
             game.CheckNumber(randomNumber);
         }
