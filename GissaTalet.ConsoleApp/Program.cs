@@ -20,7 +20,6 @@ class Program
         {
             Console.Write("\nEnter a number: ");
             game.CheckNumber();
-        
         }
     }
 }
