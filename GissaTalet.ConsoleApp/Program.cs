@@ -19,16 +19,21 @@ class Program
 
         while (true)
         {
-            
+
             Console.Write("\nYour previous guesses: ");
             game.ShowGuesses();
 
             Console.Write("\nEnter a number: ");
+            game.CheckNumber(randomNumber);
 
-            if (game.Attempts == 0)
+            if (game.isGameOver || game.Attempts == 0)
             {
-                Writer.ErrorLine("\n--- GAME OVER 😢 --- ");
-                Writer.Info($"The random number was {randomNumber}\n");
+                if (game.Attempts == 0)
+                {
+                    Writer.ErrorLine("\n--- GAME OVER 😢 --- ");
+                    Writer.Info($"The random number was {randomNumber}\n");
+                }
+
                 break;
             }
         }
