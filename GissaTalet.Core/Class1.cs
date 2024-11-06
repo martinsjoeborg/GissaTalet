@@ -40,7 +40,7 @@ public void CheckNumber(int randomNumber)
 {
     string answer = Console.ReadLine()!.Trim();
 
-    if (userExit(answer)) return;
+    if (HandleExit(answer)) return;
 
     if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
     {
@@ -52,7 +52,7 @@ public void CheckNumber(int randomNumber)
     }
 }
 
-private bool userExit(string answer)
+private bool HandleExit(string answer)
 {
     if (answer.ToLower() == "exit")
     {
