@@ -14,6 +14,7 @@ class Program
 
         while (true)
         {
+
         Console.Write("\nEnter a number: ");
         game.CheckNumber();
         
