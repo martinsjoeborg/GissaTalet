@@ -10,7 +10,7 @@ class Program
         var list = game.Numbers;
 
         Console.Clear();
-        Writer.WelcomeMessage();
+        Writer.DarkCyan("--- WELCOME TO GUESS THE NUMBER 🥳 ---");
         Writer.RulesInfo();
         Random random = new Random();
         int randomIndex = random.Next(0, game.Numbers.Count);

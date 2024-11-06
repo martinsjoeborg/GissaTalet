@@ -5,7 +5,7 @@ public class GissaTalet
 {
     public int Attempts { get; set; } = 10;
     public List<int> Numbers { get; set; } = Enumerable.Range(1, 100).ToList();
-    public bool isGameOver {get; set;} = false;
+    public bool isGameOver { get; set; } = false;
 
     public void SaveGuesses(int number)
     {
@@ -16,7 +16,7 @@ public class GissaTalet
         }
     }
 
-        public void ClearGuesses()
+    public void ClearGuesses()
     {
         string filePath = "../GissaTalet.Core/Logger.txt";
         File.WriteAllText(filePath, string.Empty);
@@ -25,7 +25,6 @@ public class GissaTalet
     public void ShowGuesses()
     {
         string filePath = "../GissaTalet.Core/Logger.txt";
-
         string[] lines = File.ReadAllLines(filePath);
 
         foreach (string line in lines)
@@ -35,46 +34,60 @@ public class GissaTalet
                 Console.Write($"{number} ");
             }
         }
-
     }
-    public void CheckNumber(int randomNumber)
+
+public void CheckNumber(int randomNumber)
+{
+    string answer = Console.ReadLine()!.Trim();
+
+    if (userExit(answer)) return;
+
+    if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
     {
-        string answer = Console.ReadLine()!.Trim();
-
-        if (answer.ToLower() == "exit")
-        {
-            isGameOver = true;
-            return;
-        }
-
-        if (int.TryParse(answer, out int input) && (input > 0 && input <= 100))
-        {
-            SaveGuesses(input);
-
-            if (input != randomNumber)
-        {
-            Writer.ErrorLine("\nWrong guess. Try again");
-            Attempts--;
-            Writer.InfoLine($"You have {Attempts} attempts left..");
-        }
-
-        else 
-        {
-            Writer.SuccessLine("\nYou got it! 🥳");
-            Writer.InfoLine($"The number was {randomNumber} and you had {Attempts} attempts left.\n");
-            ClearGuesses();
-            isGameOver = true;
-        }
-
-        }
-
-        else
-        {
-            Writer.ErrorLine("\nPlease enter a number from 1 to 100.");
-            Attempts--;
-            Writer.InfoLine($"You have {Attempts} attempts left.");
-        }
+        HandleGuess(input, randomNumber);
     }
+    else
+    {
+        InvalidInput();
+    }
+}
+
+private bool userExit(string answer)
+{
+    if (answer.ToLower() == "exit")
+    {
+        Writer.DarkCyan("\nLooks like you're giving up already! Don't worry — there's always next round! 😅\n");
+        isGameOver = true;
+        return true;
+    }
+    return false;
+}
+
+private void HandleGuess(int input, int randomNumber)
+{
+    SaveGuesses(input);
+
+    if (input != randomNumber)
+    {
+        Writer.ErrorLine("\nWrong guess. Try again");
+        Attempts--;
+        Writer.InfoLine($"You have {Attempts} attempts left..");
+    }
+    else
+    {
+        Writer.SuccessLine("\nYou got it! 🥳");
+        Writer.InfoLine($"The number was {randomNumber} and you had {Attempts} attempts left.\n");
+        ClearGuesses();
+        isGameOver = true;
+    }
+}
+
+private void InvalidInput()
+{
+    Writer.ErrorLine("\nPlease enter a number from 1 to 100.");
+    Attempts--;
+    Writer.InfoLine($"You have {Attempts} attempts left.");
+}
 }
 
 public class Writer
@@ -107,10 +120,10 @@ public class Writer
         Console.ResetColor();
     }
 
-    public static void WelcomeMessage()
+    public static void DarkCyan(string message)
     {
         Console.ForegroundColor = ConsoleColor.DarkCyan;
-        Console.WriteLine("--- WELCOME TO GUESS THE NUMBER 🥳 ---");
+        Console.WriteLine(message);
         Console.ResetColor();
     }
 
